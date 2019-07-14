@@ -1,4 +1,4 @@
-# api example
+# api Acceptance-test example
 
 This is a basic example of Supertest + Chai + Mocha.
 
