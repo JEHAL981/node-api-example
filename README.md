@@ -1,6 +1,6 @@
 # api Acceptance-test example
 
-This is a basic example of Supertest + Chai + Mocha.
+This is a basic example of Supertest + Chai + Mocha API test using http://api.postcodes.io/
 
 
 Prerequisites
