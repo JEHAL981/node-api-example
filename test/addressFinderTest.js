@@ -25,7 +25,7 @@ describe("Search for a postcode", function () {
                 expect(res.body.status).to.equal(400);
                 done();
             });
-    })
+    });
 
     it("Should 404 when incorrect post code is provided", function (done) {
         request
@@ -38,5 +38,5 @@ describe("Search for a postcode", function () {
                 expect(res.body.error).to.equal("Invalid postcode")
                 done();
             });
-    })
+    });
 });
