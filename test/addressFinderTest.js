@@ -13,7 +13,7 @@ describe("Search for a postcode", function () {
                 expect(res.body.result.postcode).to.equal("SW1A 1AA");
                 done();
             });
-    })
+    });
 
     it("Should return 400 when no post code is provided", (done) => {
         request
