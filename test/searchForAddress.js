@@ -35,5 +35,5 @@ describe("Postcode search", () => {
                 expect(res.body.result[0].result).to.equal(null)
                 done();
             });
-    })
+    });
 });

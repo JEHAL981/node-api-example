@@ -35,7 +35,7 @@ describe("Search for a postcode", function () {
             .expect(200)
             .end(function (err, res) {
                 expect(res.body.status).to.equal(404);
-                expect(res.body.error).to.equal("Invalid postcode")
+                expect(res.body.error).to.equal("Invalid postcode");
                 done();
             });
     });
