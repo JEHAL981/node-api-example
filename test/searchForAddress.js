@@ -1,5 +1,5 @@
 const request = require('supertest')("http://api.postcodes.io");
-const expect = require('chai').expect
+const expect = require('chai').expect;
 
 describe("Postcode search", () => {
     it("Should retieve list of post codes", (done) => {
@@ -16,7 +16,7 @@ describe("Postcode search", () => {
             .expect(200)
             .end(function (err, res) {
                 for (let i = 0; i < res.body.result.length; i++) {
-                    expect(res.body.result[i].query).to.equal(res.body.result[i].result.postcode)
+                    expect(res.body.result[i].query).to.equal(res.body.result[i].result.postcode);
                 }
                 done();
             });
@@ -32,7 +32,7 @@ describe("Postcode search", () => {
             .expect('Content-Type', /json/)
             .expect(200)
             .end(function (err, res) {
-                expect(res.body.result[0].result).to.equal(null)
+                expect(res.body.result[0].result).to.equal(null);
                 done();
             });
     });
