@@ -4,7 +4,7 @@
   "description": "example project to demonstrate super test library for integration tests",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./test/*.js"
+    "test:api": "mocha ./test/*.js"
   },
   "devDependencies": {
     "chai": "^4.2.0",
