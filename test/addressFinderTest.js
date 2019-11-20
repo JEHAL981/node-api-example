@@ -1,5 +1,7 @@
 const request = require('supertest')("http://api.postcodes.io");
 const expect = require('chai').expect;
+const Fixtures = require('./fixtures/fixtures');
+const ErrorCodeFixture = Fixtures.ErrorCodeFixture;
 
 describe("Search for a postcode", function () {
 
@@ -8,8 +10,8 @@ describe("Search for a postcode", function () {
             .get('/postcodes/' + "SW1A 1AA")
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
-            .expect(200)
             .end(function (err, res) {
+                expect(res.body.status).to.equal(200);
                 expect(res.body.result.postcode).to.equal("SW1A 1AA");
                 done();
             });
@@ -20,19 +22,17 @@ describe("Search for a postcode", function () {
             .get('/postcodes/')
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
-            .expect(200)
             .end(function (err, res) {
                 expect(res.body.status).to.equal(400);
                 done();
             });
     });
 
-    it("Should 404 when incorrect post code is provided", function (done) {
+    it("Should 404 when incorrect post code is provided", (done) => {
         request
-            .get('/postcodes/' + 'AB123')
+            .get('/postcodes/' + ErrorCodeFixture.invalidPostCode)
             .set('Accept', 'application/json')
             .expect('Content-Type', /json/)
-            .expect(200)
             .end(function (err, res) {
                 expect(res.body.status).to.equal(404);
                 expect(res.body.error).to.equal("Invalid postcode");
