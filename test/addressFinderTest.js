@@ -24,11 +24,12 @@ describe("Search for a postcode", function () {
             .expect('Content-Type', /json/)
             .end(function (err, res) {
                 expect(res.body.status).to.equal(400);
+                expect(res.body.error).to.equal("No postcode query submitted. Remember to include query parameter");
                 done();
             });
     });
 
-    it("Should 404 when incorrect post code is provided", (done) => {
+    it("Should return invalid postcode error message", (done) => {
         request
             .get('/postcodes/' + ErrorCodeFixture.invalidPostCode)
             .set('Accept', 'application/json')
